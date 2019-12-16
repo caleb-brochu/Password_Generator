@@ -1,0 +1,30 @@
+.navbar-text {
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  h1
+  {
+    
+    border-bottom: 2px black;
+  }
+
+  .container-fluid
+  {
+    width: 100%; 
+    border-bottom: 2pt black;
+    border-top: 2pt black;
+  }
+
+  h4
+  {
+      width: 100%;
+      height:250px;
+      padding: 50px;
+      text-align: center;
+      border: 1px dotted gray;
+      -moz-border-radius-topright: 30px 20px;
+      -moz-border-radius-topleft: 30px 20px;
+  }

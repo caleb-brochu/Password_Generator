@@ -1,15 +1,23 @@
 
-document.getElementById("generate").addEventListener("click", function userPrompts(){
+let generatePW = document.getElementById("generate");
+let copyPW = document.getElementById("copy");
+
+
+generatePW.addEventListener("click", function userPrompts(){
     let choiceUpper = confirm("Do you want UPPER case characters in your password?");
     let choiceLower = confirm("Do you want LOWER case characters in your password?");
-    while(!choiceUpper && !choiceLower)
+    let choiceNumber = confirm("Do you want NUMBERS in your password?");
+    let choiceSpecial = confirm("Do you want SPECIAL characters in your password?");
+
+    while(!choiceUpper && !choiceLower && !choiceSpecial && !choiceNumber)
     {
-        alert("Password must contain at least one alphanumberic character, try again!");
+        alert("Password must contain at least one character type, try again!");
         choiceUpper = confirm("Do you want UPPER case characters in your password?");
         choiceLower = confirm("Do you want LOWER case characters in your password?");
+        choiceNumber = confirm("Do you want NUMBERS in your password?");
+        choiceSpecial = confirm("Do you want SPECIAL characters in your password?");
     }
-        let choiceNumber = confirm("Do you want NUMBERS in your password?");
-        let choiceSpecial = confirm("Do you want SPECIAL characters in your password?");
+
         let choosePasswordLength = prompt("How long do you want your password?");
         while(choosePasswordLength < 8 || choosePasswordLength > 128)
         {
@@ -20,23 +28,25 @@ document.getElementById("generate").addEventListener("click", function userPromp
 });
 
 
+copyPW.addEventListener("click", function(event) {
+        
+    /* Get the text field */
+    let copyText = document.getElementById("secure");
+
+    /* Select the text field */
+    copyText.select();
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+
+})
+
+
 function passwordGenerator(upper, lower, number, special, length)
 {
     
-    console.log(upper);
-    console.log(lower);
-    console.log(number);
-    console.log(special);
-    console.log(length);
-   
     let password = "";
-    let passwordLength = password.length;
-    // let myarray = [charUpper,charLower,charNumber,charSpecial];
-    // for(let i = 0; i < length; i++){
-    
-        
 
-    // }
     let randomChar = {
         charUpper: function()
         { 
@@ -94,31 +104,11 @@ function passwordGenerator(upper, lower, number, special, length)
         }
     }
     
-
-//     let password = "";
-//     console.log("password", password); 
-//     
-//         if(upper && password.length < length)
-//         {
-//             password += getUpper();  
-//         }
-//         if(lower && password.length < length)
-//         {
-//             password += getLower();
-//         }
-//         if(number && password.length < length)
-//         {
-//             password += getNumber();
-//         }
-//         if(special && password.length < length)
-//         {
-//             password += getSpecial();
-//         }
-//     }
-//     console.log("password", password);
-     console.log(password);
+    document.getElementById("secure").value = password;
+    
 
 }
+
 function getUpper()
 {
     return String.fromCharCode(Math.floor(Math.random()* 26) + 65);
